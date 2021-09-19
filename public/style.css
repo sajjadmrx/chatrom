@@ -144,6 +144,11 @@ video {
   margin-right: 0.7rem;
   font-size: 1.5rem;
 }
+
+#muteSound{
+  cursor: pointer;
+}
+
 #BOT {
   background-color: #e1a4a4;
   margin: 1rem 0;

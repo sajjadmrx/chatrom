@@ -5,7 +5,9 @@ let notificationsound = true
 
 const showChat = document.querySelector("#showChat");
 const backBtn = document.querySelector(".header__back");
-
+const mutenNtificationBtn = document.querySelector("#muteSound");
+const stopVideoBtn = document.querySelector("#stopVideo");
+const muteButton = document.querySelector("#muteButton");
 showChat.addEventListener("click", () => {
     document.querySelector(".main__right").style.display = "flex";
     document.querySelector(".main__right").style.flex = "1";
@@ -19,6 +21,23 @@ backBtn.addEventListener("click", () => {
     document.querySelector(".header__back").style.display = "none";
 });
 
+stopVideoBtn.addEventListener("click", () => {
+    alert("coming soon");
+})
+muteButton.addEventListener("click", () => {
+    alert("coming soon");
+})
+
+mutenNtificationBtn.addEventListener("click", () => {
+    if (notificationsound) {
+        mutenNtificationBtn.innerHTML = `<i class="fas fa-volume-mute" aria-hidden="true"></i>`;
+        notificationsound = false
+    }
+    else {
+        mutenNtificationBtn.innerHTML = `<i class="fas fa-volume-up"></i>`;
+        notificationsound = true
+    }
+})
 
 const messageInput = document.getElementById("chat_message");
 
@@ -75,6 +94,7 @@ function addMessageToMessages(message) {
 
     // play sound
     if (sender == username) return;
+
     playSound();
 
 }
@@ -83,6 +103,7 @@ function updateUsersLength(roomUsersLen) {
 }
 
 function playSound() {
+    if (!notificationsound) return;
     const audio = new Audio('./sounds/newMessage.ogg');
     audio.play();
 }
